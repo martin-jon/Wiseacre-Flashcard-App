@@ -1,0 +1,39 @@
+<!-- this is the angular quiz template -->
+
+<ui-view>
+<div ng-hide="false">
+<div class="quiz-area" ng-show="quizController.inProgress">
+  <div ng-show="!quizController.quizOver" class="center">
+    <h3 class="quiz-ques"><strong>Question: </strong>{{quizController.question}}</h3></br>
+    <ul>
+      <label> Answer: </label>
+      <input type="text" name="answer" spellcheck="true">
+    </ul>
+  </br>
+    <button type="submit" class="btn btn-info btn-md .submit-button quiz-ques" ng-click="quizController.checkAnswer()" ng-show="quizController.answerMode">Submit</button>
+
+    <div ng-show="!quizController.answerMode" id="show-answer">
+      <span ng-show="quizController.correctAns">That's Correct Wiseacre!<br/><img src="assets/highfive.jpg" id="highfive"></span>
+        <span ng-show="!quizController.correctAns"><div>Nope, try Again! </div></br><span>Correct answer: <strong> {{quizController.answer}}</strong></span></span>
+      <p></p>
+      <button ng-click="quizController.nextQuestion()" class="btn btn-info btn-md .submit-button">Next question</button>
+    </div>
+  </div>
+
+  <div class="quiz-ques" ng-show="quizController.quizOver">
+    <h2>Quiz is over</h2>
+    <button type="submit" class="btn btn-info btn-md .submit-button" ng-click="quizController.reset()">Play again</button>
+  </div>
+
+  <div id="score">
+    Score: {{quizController.scorePercentage}}%
+  </div>
+</div>
+
+<div class="intro" ng-show="!quizController.inProgress">
+  <p>Are you a Wiseacre?</p>
+  <button type="submit" class="btn btn-info btn-md .submit-button" ng-click="quizController.startQuiz()">Start the Quiz</button>
+</div>
+
+</div>
+</ui-view>

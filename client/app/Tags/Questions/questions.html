@@ -1,0 +1,38 @@
+<!-- this is the main questions angular template -->
+<ui-view>
+<button class="btn btn-info btn-md .submit-button toggle-quiz" ng-click="questionsController.quizMe()">Toggle quiz!</button>
+<div ng-if="!questionsController.quizTime">
+<div ng-repeat="question in questionsController.questions | filter: {_tag: questionsController.getCurrentTag()}">
+  <div class="question">
+    <div class="question-inside">
+    <strong>Question: </strong> <span > {{question.text}} </span></br>
+    <strong>Answer: </strong> <span> {{question.answer}} </span></br>
+    <strong>Tag: </strong> <span> {{question._tag}} </span>
+    </div>
+    <button type="button" class="close" ng-click="questionsController.deleteQuestion(question)">&times;</button>
+  </div>
+</div>
+<hr/>
+    <div >
+        <h2> Create a New Flashcard! </h2>
+        <hr/>
+        <form ng-submit="questionsController.addNewQuestion()" novalidate>
+            <div class="center">
+                <label>Flashcard Question</label>
+                <textarea type="text" ng-model="questionsController.newQuestion.text" placeholder="enter question here" spellcheck="true"></textarea>
+            </div>
+            <div class="center">
+                <label>Flashcard Answer</label>
+                <textarea type="text" ng-model="questionsController.newQuestion.answer" placeholder="enter answer here" spellcheck="true"></textarea>
+            </div>
+            <div class="center">
+                <label>Category Tag</label>
+                <input type="text" ng-model="questionsController.newQuestion.tag" placeholder="enter category" spellcheck="true">
+            </div>
+            <button type="submit" class="btn btn-info btn-md .submit-button">Create</button>
+        </form>
+    </div>
+</div>
+</ui-view>
+
+

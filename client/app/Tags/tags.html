@@ -1,0 +1,11 @@
+<!-- this is the left navbar where the flashcard category tags 
+will populate after the user creates them -->
+
+<a ui-sref="wiseacreflashcardapp.tags"><h2><strong>Wiseacre<br>Flashcards</strong></h2></a>
+<ul class="nav nav-sidebar" id="navbar-custom">
+    <li ng-repeat="tag in tagsController.tags" ng-click="setCurrentTag(tag)">
+        <a ui-sref="wiseacreflashcardapp.tags.questions({tag:tag.name})">
+            {{tag.name}}
+        </a>
+    </li>
+</ul>
