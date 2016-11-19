@@ -11,4 +11,7 @@ Enter a flashcard question and answer, along with a category tag. To test create
 
 As you add different flashcard categories, you will see them appear in a list on the left nav bar. In some browsers, after adding a new category you may need to hit the refresh button in order for it to populate. Also, it’s important to note at this time the flashcard answers are set to be case-sensitive in order to encourage proper repetition. When taking the five question quiz, the flashcard questions are asked randomly, so it is possible you may be asked the same question multiple times or even consecutively. Again, this is by design to encourage learning through repetition. 
 
+Next steps in development will be to add updating and deletion functionality. Also I would like to deploy the app to an EC2 instance in AWS. 	
+
+
 
